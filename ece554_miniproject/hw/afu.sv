@@ -162,7 +162,7 @@ module afu
 		    // =============================================================   
 		    
                     // Provide the 64-bit data from the user register mapped to h0020.
-                    16'h0020: tx.c2.data <= fifo_output;
+		    16'h0020: tx.c2.data <= fifo_output;
 
 		    // If the processor requests an address that is unused, return 0.
                     default:  tx.c2.data <= 64'h0;
@@ -171,5 +171,5 @@ module afu
           end
      end
 
-     fifo FIFO1(.clk(clk), .rst_n(rst_n), .en(rx.c0.mmioWrValid), .d(rx.c0.data), .q(
+     fifo FIFO1(.clk(clk), .rst_n(~rst), .en(rx.c0.mmioWrValid), .d(rx.c0.data), .q(fifo_output));
 endmodule
