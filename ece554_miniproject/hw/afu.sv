@@ -171,5 +171,5 @@ module afu
           end
      end
 
-     fifo FIFO1(.clk(clk), .rst_n(rst_n), .en(rx.c0.mmioWrValid), .d(rx.c0.data), .q(
+	fifo FIFO1(.clk(clk), .rst_n(rst_n), .en(rx.c0.mmioWrValid), .d(rx.c0.data), .q(fifo_output));
 endmodule
